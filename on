@@ -1,0 +1,5 @@
+#!/bin/bash
+curl -s https://www.amfiindia.com/spages/NAVAll.txt -o NAVAll.txt
+awk -F ';' 'BEGIN {OFS="\t"} NR > 1 && NF > 5 { print $4, $5 }' NAVAll.txt > schemes.tsv
+
+echo "TSV file created: schemes.tsv"
